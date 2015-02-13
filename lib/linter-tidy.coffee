@@ -28,19 +28,4 @@ class LinterTidy extends Linter
   destroy: ->
     atom.config.unobserve 'linter-tidy.tidyExecutablePath'
 
-  formatMessage: (match) ->
-    @escapeMessage(match.message)
-
-  escapeMessage: (message) ->
-    message.replace(/[&"'<>]/g, @escapeMessageReplace)
-
-  escapeMessageReplace: (match) ->
-    switch match
-      when '&' then '&amp;'
-      when '"' then '&quot;'
-      when "'" then '&#39;'
-      when '<' then '&lt;'
-      when '>' then '&gt;'
-      else match
-
 module.exports = LinterTidy
