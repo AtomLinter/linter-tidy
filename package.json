@@ -1,7 +1,7 @@
 {
   "name": "linter-tidy",
   "linter-package": true,
-  "activationEvents": [],
+  "activationCommands": {},
   "main": "./lib/init",
   "version": "1.0.0",
   "description": "Linter plugin for HTML, using tidy",
