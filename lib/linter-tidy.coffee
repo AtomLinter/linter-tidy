@@ -22,10 +22,10 @@ class LinterTidy extends Linter
   constructor: (editor) ->
     super(editor)
 
-    atom.config.observe 'linter-tidy.tidyExecutablePath', =>
+    @executablePathListener = atom.config.observe 'linter-tidy.tidyExecutablePath', =>
       @executablePath = atom.config.get 'linter-tidy.tidyExecutablePath'
 
   destroy: ->
-    atom.config.unobserve 'linter-tidy.tidyExecutablePath'
+    @executablePathListener.dispose()
 
 module.exports = LinterTidy
