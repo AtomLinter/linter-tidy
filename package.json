@@ -3,7 +3,7 @@
   "linter-package": true,
   "activationCommands": {},
   "main": "./lib/init",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Linter plugin for HTML, using tidy",
   "repository": {
     "type": "git",
