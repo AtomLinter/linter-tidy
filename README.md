@@ -1,10 +1,10 @@
 # linter-tidy
 
-This package will lint your `.html` opened files in Atom through [tidy](http://tidy.sourceforge.net/).
+This package will lint your `.html` opened files in Atom through [tidy-html5](http://www.htacg.org/tidy-html5).
 
 ## Installation
 
-* Install [tidy](http://tidy.sourceforge.net/)
+* Install [tidy-html5](http://www.htacg.org/tidy-html5)
 * `$ apm install language-html` (if you don't have [language-html](https://github.com/atom/language-html) installed)
 * `$ apm install linter` (if you don't have [linter](https://github.com/AtomLinter/Linter) installed)
 * `$ apm install linter-tidy`
