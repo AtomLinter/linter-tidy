@@ -9,7 +9,7 @@ module.exports =
 
   activate: ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.config.observe 'linter-tidy.executablePath',
+    @subscriptions.add atom.config.observe 'linter-tidy.tidyExecutablePath',
       (executablePath) =>
         @executablePath = executablePath
   deactivate: ->
