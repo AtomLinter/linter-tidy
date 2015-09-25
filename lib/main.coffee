@@ -22,6 +22,7 @@ module.exports =
       scope: 'file'
       lintOnFly: false # must be false for scope: 'project'
       lint: (textEditor) =>
+        filePath = textEditor.getPath()
         return helpers.exec(@executablePath, ['-quiet', '-utf8', filePath], {stream: 'stderr'})
         .then (contents) ->
           return helpers.parse(contents, regex)
