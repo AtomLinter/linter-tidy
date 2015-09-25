@@ -1,7 +1,9 @@
+{CompositeDisposable} = require('atom')
+
 module.exports =
   config:
     tidyExecutablePath:
-      default: ''
+      default: 'tidy'
       title: 'Tidy Executable Path'
       type: 'string'
 
