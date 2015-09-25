@@ -25,6 +25,6 @@ module.exports =
         filePath = textEditor.getPath()
         return helpers.exec(@executablePath, ['-quiet', '-utf8', filePath], {stream: 'stderr'})
         .then (contents) ->
-          return helpers.parse(contents, regex).map(message =>
+          return helpers.parse(contents, regex).map((message) =>
             message.type = 'error'
           )
