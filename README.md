@@ -4,17 +4,15 @@ This package will lint your `.html` opened files in Atom through [tidy-html5](ht
 
 ## Installation
 
-* Install [tidy-html5](http://www.htacg.org/tidy-html5)
-* `$ apm install language-html` (if you don't have [language-html](https://github.com/atom/language-html) installed)
-* `$ apm install linter` (if you don't have [linter](https://github.com/AtomLinter/Linter) installed)
-* `$ apm install linter-tidy`
+*   Install [tidy-html5](http://www.htacg.org/tidy-html5)
+*   `$ apm install linter-tidy`
 
 ## Settings
-You can configure linter-tidy by editing ~/.atom/config.cson (choose Open Your Config in Atom menu):
-```
+
+You can configure linter-tidy by editing ~/.atom/config.cson (choose Open Your
+Config in Atom menu):
+
+```coffeescript
 'linter-tidy':
   'tidyExecutablePath': null # tidy path. run 'which tidy' to find the path
 ```
-
-## Donation
-[![Share the love!](https://chewbacco-stuff.s3.amazonaws.com/donate.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KXUYS4ARNHCN8)
