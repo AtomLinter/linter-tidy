@@ -7,9 +7,16 @@
     "type": "git",
     "url": "https://github.com/AtomLinter/linter-tidy"
   },
+  "keywords": [
+    "linter",
+    "lint",
+    "tidy",
+    "tidy-html5"
+  ],
   "license": "MIT",
+  "private": true,
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "providedServices": {
     "linter": {
@@ -19,6 +26,13 @@
     }
   },
   "dependencies": {
-    "atom-linter": "^3.2.0"
-  }
+    "atom-linter": "^4.3.2",
+    "atom-package-deps": "^3.0.7"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.14.2"
+  },
+  "package-deps": [
+    "linter"
+  ]
 }
