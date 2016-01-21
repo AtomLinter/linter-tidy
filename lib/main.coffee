@@ -24,13 +24,14 @@ module.exports =
       grammarScopes: ['text.html.basic']
       name: 'tidy'
       scope: 'file'
-      lintOnFly: false
+      lintOnFly: true
       lint: (textEditor) =>
         filePath = textEditor.getPath()
+        fileText = textEditor.getText()
         return helpers.exec(
           @executablePath,
           ['-quiet', '-utf8', '-errors', filePath],
-          {stream: 'stderr'}
+          {stream: 'stderr', stdin: fileText}
         ).then (output) ->
           messages = []
           match = regex.exec(output)
