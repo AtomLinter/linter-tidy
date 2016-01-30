@@ -2,6 +2,9 @@
 
 import * as path from 'path';
 
+const badFile = path.join(__dirname, 'fixtures', 'bad.html');
+const goodFile = path.join(__dirname, 'fixtures', 'good.html');
+
 describe('The Tidy provider for Linter', () => {
   const lint = require(path.join('..', 'lib', 'main.coffee')).provideLinter().lint;
 
@@ -17,21 +20,20 @@ describe('The Tidy provider for Linter', () => {
 
   describe('checks a file with issues and', () => {
     let editor = null;
-    const badFile = path.join(__dirname, 'fixtures', 'bad.html');
     beforeEach(() => {
-      waitsForPromise(() => {
-        return atom.workspace.open(badFile).then(openEditor => {
+      waitsForPromise(() =>
+        atom.workspace.open(badFile).then(openEditor => {
           editor = openEditor;
-        });
-      });
+        })
+      );
     });
 
     it('finds at least one message', () => {
-      waitsForPromise(() => {
-        return lint(editor).then(messages => {
+      waitsForPromise(() =>
+        lint(editor).then(messages => {
           expect(messages.length).toBeGreaterThan(0);
-        });
-      });
+        })
+      );
     });
 
     it('verifies the first message', () => {
@@ -54,13 +56,12 @@ describe('The Tidy provider for Linter', () => {
   });
 
   it('finds nothing wrong with a valid file', () => {
-    waitsForPromise(() => {
-      const goodFile = path.join(__dirname, 'fixtures', 'good.html');
-      return atom.workspace.open(goodFile).then(editor => {
-        return lint(editor).then(messages => {
+    waitsForPromise(() =>
+      atom.workspace.open(goodFile).then(editor =>
+        lint(editor).then(messages => {
           expect(messages.length).toEqual(0);
-        });
-      });
-    });
+        })
+      )
+    );
   });
 });
