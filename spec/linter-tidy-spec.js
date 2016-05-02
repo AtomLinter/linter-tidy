@@ -2,12 +2,12 @@
 
 import * as path from 'path';
 
+const lint = require(path.join('..', 'lib', 'main.coffee')).provideLinter().lint;
+
 const badFile = path.join(__dirname, 'fixtures', 'bad.html');
 const goodFile = path.join(__dirname, 'fixtures', 'good.html');
 
 describe('The Tidy provider for Linter', () => {
-  const lint = require(path.join('..', 'lib', 'main.coffee')).provideLinter().lint;
-
   beforeEach(() => {
     atom.workspace.destroyActivePaneItem();
     waitsForPromise(() => {
