@@ -31,7 +31,7 @@ module.exports =
         return helpers.exec(
           @executablePath,
           ['-quiet', '-utf8', '-errors', filePath],
-          {stream: 'stderr', stdin: fileText}
+          {stream: 'stderr', stdin: fileText, allowEmptyStderr: true}
         ).then (output) ->
           messages = []
           match = regex.exec(output)
