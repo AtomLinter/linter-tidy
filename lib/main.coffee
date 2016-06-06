@@ -30,7 +30,7 @@ module.exports =
         fileText = textEditor.getText()
         return helpers.exec(
           @executablePath,
-          ['-quiet', '-utf8', '-errors', filePath],
+          ['-quiet', '-utf8', '-errors'],
           {stream: 'stderr', stdin: fileText, allowEmptyStderr: true}
         ).then (output) ->
           messages = []

@@ -64,4 +64,16 @@ describe('The Tidy provider for Linter', () => {
       )
     );
   });
+
+  it('finds errors on the fly', () => {
+    waitsForPromise(() =>
+      atom.workspace.open(goodFile).then(editor => {
+        editor.moveToBottom();
+        editor.insertText('\n<h2>This should not be outside the body!</h2>\n');
+        return lint(editor);
+      }).then(messages => {
+        expect(messages.length).toBeGreaterThan(0);
+      })
+    );
+  });
 });
