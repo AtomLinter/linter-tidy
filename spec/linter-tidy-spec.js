@@ -44,7 +44,7 @@ describe('The Tidy provider for Linter', () => {
           expect(messages[0].html).not.toBeDefined();
           expect(messages[0].text).toBe(messageText);
           expect(messages[0].filePath).toBe(badFile);
-          expect(messages[0].range).toEqual([[6, 0], [6, 21]]);
+          expect(messages[0].range).toEqual([[6, 0], [6, 4]]);
         });
       });
     });
