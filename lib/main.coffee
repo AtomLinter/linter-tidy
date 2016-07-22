@@ -19,6 +19,11 @@ module.exports =
 
   provideLinter: ->
     helpers = require('atom-linter')
+    _path = require('path')
+    _interopRequireDefault = (obj) ->
+      if obj and obj.__esModule then obj else default: obj
+    _path2 = _interopRequireDefault(_path)
+
     regex = /line (\d+) column (\d+) - (Warning|Error): (.+)/g
     provider =
       grammarScopes: ['text.html.basic']
@@ -28,11 +33,21 @@ module.exports =
       lint: (textEditor) =>
         filePath = textEditor.getPath()
         fileText = textEditor.getText()
+        fileDir = _path2.default.dirname(filePath)
+
+        configFile = helpers.findCached fileDir, ['.tidyrc', '.tidyconfig.cfg', '.tidyconfig.txt', 'tidyconfig.cfg', 'tidyconfig.txt']
+        console.info configFile
+        if configFile
+          options = ['-config', configFile, '-quiet', '-utf8', '-errors']
+        else
+          options = ['-quiet', '-utf8', '-errors']
+        # console.info options
         return helpers.exec(
           @executablePath,
-          ['-quiet', '-utf8', '-errors'],
+          options,
           {stream: 'stderr', stdin: fileText, allowEmptyStderr: true}
         ).then (output) ->
+          console.info(output)
           messages = []
           match = regex.exec(output)
           while match != null
