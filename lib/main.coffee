@@ -35,12 +35,28 @@ module.exports =
         fileText = textEditor.getText()
         fileDir = _path2.default.dirname(filePath)
 
-        configFile = helpers.findCached fileDir, ['.tidyrc', '.tidyconfig.cfg', '.tidyconfig.txt', 'tidyconfig.cfg', 'tidyconfig.txt']
+        configFile = helpers.findCached fileDir, [
+          '.tidyrc',
+          '.tidyconfig.cfg',
+          '.tidyconfig.txt',
+          'tidyconfig.cfg',
+          'tidyconfig.txt'
+        ]
         console.info configFile
         if configFile
-          options = ['-config', configFile, '-quiet', '-utf8', '-errors']
+          options = [
+            '-config',
+            configFile,
+            '-quiet',
+            '-utf8',
+            '-errors'
+          ]
         else
-          options = ['-quiet', '-utf8', '-errors']
+          options = [
+            '-quiet',
+            '-utf8',
+            '-errors'
+          ]
         # console.info options
         return helpers.exec(
           @executablePath,
