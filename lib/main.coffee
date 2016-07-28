@@ -19,6 +19,7 @@ module.exports =
 
   provideLinter: ->
     helpers = require('atom-linter')
+    path = require('path')
     regex = /line (\d+) column (\d+) - (Warning|Error): (.+)/g
     provider =
       grammarScopes: ['text.html.basic']
