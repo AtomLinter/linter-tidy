@@ -20,9 +20,6 @@ module.exports =
   provideLinter: ->
     helpers = require('atom-linter')
     _path = require('path')
-    _interopRequireDefault = (obj) ->
-      if obj and obj.__esModule then obj else default: obj
-    _path2 = _interopRequireDefault(_path)
 
     regex = /line (\d+) column (\d+) - (Warning|Error): (.+)/g
     provider =
@@ -33,7 +30,7 @@ module.exports =
       lint: (textEditor) =>
         filePath = textEditor.getPath()
         fileText = textEditor.getText()
-        fileDir = _path2.default.dirname(filePath)
+        fileDir = _path.dirname(filePath)
 
         configFile = helpers.findCached fileDir, [
           '.tidyrc',
