@@ -8,8 +8,12 @@ module.exports =
       type: 'string'
     tidyConfigName:
       default: '.tidycfg.cfg'
-      title: 'Name for `tidycfg` file at the root of project directories (For custom html5-tidy config directives)'
-      description: 'See the [tidy-html5 API reference](http://api.html-tidy.org/tidy/quickref_5.2.0.html#doctype) for configuration options'
+      title: 'Name for `tidycfg` file ' +
+      '(located at the root of project directories, or with files in a folder)'
+      description: 'See the ' +
+        '[tidy-html5 API reference]' +
+        '(http://api.html-tidy.org/tidy/quickref_5.2.0.html#doctype) '+
+        'for configuration options'
       type: 'string'
 
 
