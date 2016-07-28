@@ -7,8 +7,8 @@ module.exports =
       title: 'Full path to the `tidy` executable'
       type: 'string'
     tidyConfigName:
-      default: '.tidycfg.cfg'
-      title: 'Name for `tidycfg` file ' +
+      default: '.tidyconfig.cfg'
+      title: 'Name for `tidyconfig` file ' +
       '(located at the root of project directories, or with files in a folder)'
       description: 'See the ' +
         '[tidy-html5 API reference]' +
@@ -45,30 +45,30 @@ module.exports =
         filePath = textEditor.getPath()
         fileText = textEditor.getText()
         fileDir = textEditor.getDirectoryPath()
-        if textEditor.project.getPaths().length > 0
-          projectPaths = textEditor.project.getPaths()
+        projectPaths = textEditor.project.getPaths() if textEditor.project
 
         try
-          if fs.statSync path.join fileDir, @tidyConfigName
-            configFile = path.join fileDir, @tidyConfigName
+          fileConfigFile = path.join fileDir, @tidyConfigName
+          if fs.statSync fileConfigFile
+            configFile = fileConfigFile
             if atom.devMode
-              console.debug 'Using tidy config file at: ' +
-              path.join fileDir, @tidyConfigName
+              console.debug 'Using tidy config file at: ' + fileConfigFile
         catch err
           if atom.devMode
             console.debug 'No tidy config file found at ' +
-            path.join fileDir, @tidyConfigName + ', trying project root'
+            fileConfigFile + ', trying project root'
 
           if projectPaths and !configFile
             for projectPath of projectPaths
               thisPath = projectPaths[projectPath]
               if !configFile
                 try
-                  if fs.statSync path.join thisPath, @tidyConfigName
-                    configFile = path.join thisPath, @tidyConfigName
+                  projectConfigFile = path.join thisPath, @tidyConfigName
+                  if fs.statSync projectConfigFile
+                    configFile = projectConfigFile
                     if atom.devMode
                       console.debug 'Using tidy config file at: ' +
-                      path.join thisPath, @tidyConfigName
+                      projectConfigFile
                 catch err
                   if parseInt projectPath, 10 == projectPaths.length - 1
                     msg = ', tidy defaults will be used'
@@ -76,10 +76,7 @@ module.exports =
                     msg = ', trying next project folder'
                   if atom.devMode
                     console.debug 'No tidy config file found at ' +
-                    path.join thisPath, @tidyConfigName + msg
-
-
-        configFile = helpers.findCached fileDir, @tidyConfigName
+                    projectConfigFile + msg
 
         options = [
           '-quiet',
