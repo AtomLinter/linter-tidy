@@ -16,7 +16,6 @@ module.exports =
         'for configuration options'
       type: 'string'
 
-
   activate: ->
     require('atom-package-deps').install()
     @subscriptions = new CompositeDisposable
@@ -34,7 +33,6 @@ module.exports =
     helpers = require('atom-linter')
     path = require('path')
     fs = require('fs')
-
     regex = /line (\d+) column (\d+) - (Warning|Error): (.+)/g
     provider =
       grammarScopes: ['text.html.basic']
@@ -46,7 +44,6 @@ module.exports =
         fileText = textEditor.getText()
         fileDir = textEditor.getDirectoryPath()
         projectPaths = textEditor.project.getPaths() if textEditor.project
-
         try
           fileConfigFile = path.join fileDir, @tidyConfigName
           if fs.statSync fileConfigFile
@@ -57,7 +54,6 @@ module.exports =
           if atom.devMode
             console.debug 'No tidy config file found at ' +
             fileConfigFile + ', trying project root'
-
           if projectPaths and !configFile
             for projectPath of projectPaths
               thisPath = projectPaths[projectPath]
@@ -77,15 +73,9 @@ module.exports =
                   if atom.devMode
                     console.debug 'No tidy config file found at ' +
                     projectConfigFile + msg
-
-        options = [
-          '-quiet',
-          '-utf8',
-          '-errors'
-        ]
+        options = ['-quiet', '-utf8', '-errors']
         if configFile
           options.unshift '-config', configFile
-
         return helpers.exec(
           @executablePath,
           options,
