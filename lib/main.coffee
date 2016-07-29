@@ -56,10 +56,11 @@ module.exports =
 
     # Add user-specified grammar scopes to the list of scopes to lint.
     customGrammarScopes = atom.config.get('linter-tidy.customGrammarScopes')
-    for customGrammarScope in customGrammarScopes
-      if customGrammarScope in grammarScopes
-        continue
-      grammarScopes.push customGrammarScope
+    if Array.isArray(customGrammarScopes)
+      for customGrammarScope in customGrammarScopes
+        if customGrammarScope in grammarScopes
+          continue
+        grammarScopes.push customGrammarScope
 
     provider =
       grammarScopes: grammarScopes
