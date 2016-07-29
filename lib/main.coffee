@@ -1,9 +1,7 @@
 {CompositeDisposable} = require('atom')
 
-# The default grammar scopes checked by this linter.
-defaultGrammarScopes = [
-  'text.html.basic'
-]
+# The grammar scopes checked by this linter.
+grammarScopes = []
 
 module.exports =
   config:
@@ -11,17 +9,19 @@ module.exports =
       default: 'tidy'
       title: 'Full path to the `tidy` executable'
       type: 'string'
-    customGrammarScopes:
-      default: []
-      title: 'Custom Grammar Scopes'
-      description: 'A list of extra grammar scopes to lint with Tidy.<br/><br/>
+    grammarScopes:
+      default: [
+        'text.html.basic'
+      ]
+      title: 'Grammar Scopes'
+      description: 'A list of grammar scopes to lint with Tidy.<br/><br/>
         By default, this package only lints HTML scopes known to work cleanly
         with Tidy. If you know of any HTML variants that Tidy works with without
         producing spurious errors, please
         [let us know](https://github.com/AtomLinter/linter-tidy/issues)
         so that we may improve the default list.<br/><br/>
-        The following grammar scopes are linted by default and do not need to
-        be included below: ' + defaultGrammarScopes.join(', ')
+        To find the grammar scopes used by a file, use the `Editor: Log Cursor
+        Scope` command.'
       type: 'array'
       items:
         type: 'string'
@@ -33,17 +33,12 @@ module.exports =
       (executablePath) =>
         @executablePath = executablePath
 
-    # Add a listener to reload this package if the custom grammar scopes setting
-    # changes. Grammar scopes can only be set at load time.
-    @subscriptions.add atom.config.observe 'linter-tidy.customGrammarScopes',
-      () ->
-        # Only reload the package if it is not already active.
-        # Otherwise, Atom could get stuck in an infinite loop.
-        if !atom.packages.isPackageActive('linter-tidy')
-          return
-
-        atom.packages.deactivatePackage('linter-tidy')
-        atom.packages.activatePackage('linter-tidy')
+    # Add a listener to update the list of grammar scopes linted when the
+    # config value changes.
+    @subscriptions.add atom.config.observe 'linter-tidy.grammarScopes',
+      (configScopes) ->
+        grammarScopes.splice(0, grammarScopes.length)
+        grammarScopes.push(configScopes...)
 
   deactivate: ->
     @subscriptions.dispose()
@@ -52,16 +47,6 @@ module.exports =
     helpers = require('atom-linter')
     path = require('path')
     regex = /line (\d+) column (\d+) - (Warning|Error): (.+)/g
-    grammarScopes = defaultGrammarScopes.slice()
-
-    # Add user-specified grammar scopes to the list of scopes to lint.
-    customGrammarScopes = atom.config.get('linter-tidy.customGrammarScopes')
-    if Array.isArray(customGrammarScopes)
-      for customGrammarScope in customGrammarScopes
-        if customGrammarScope in grammarScopes
-          continue
-        grammarScopes.push customGrammarScope
-
     provider =
       grammarScopes: grammarScopes
       name: 'tidy'

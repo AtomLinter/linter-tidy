@@ -4,27 +4,8 @@ import * as path from 'path';
 
 const lint = require(path.join('..', 'lib', 'main.coffee')).provideLinter().lint;
 
-// TODO: Implement variables and functions related to the main linter package.
-//       When done, create a test that fails if the package is not available.
-/**
- * Whether or not the main linter package functions are available.
- */
-const linterAvailable = false;
-
-/**
- * Invokes the linter package lint function on an editor.
- *
- * @param TextEditor editor The editor to invoke the lint function on.
- * @return Promise A promise that will return an array of
- *                 linter messages generated.
- */
-const globalLint = () => new Promise((resolve, reject) => {
-  reject('globalLint not implemented.');
-});
-
 const badFile = path.join(__dirname, 'fixtures', 'bad.html');
 const goodFile = path.join(__dirname, 'fixtures', 'good.html');
-const badHandlebarsFile = path.join(__dirname, 'fixtures', 'bad.hbs');
 
 describe('The Tidy provider for Linter', () => {
   beforeEach(() => {
@@ -89,33 +70,5 @@ describe('The Tidy provider for Linter', () => {
         expect(messages.length).toBeGreaterThan(0);
       })
     );
-  });
-
-  describe('lints grammar scopes specified by the user and', () => {
-    const itIfLinterAvailable = linterAvailable ? it : xit;
-
-    itIfLinterAvailable('finds errors in included scopes', () => {
-      expect(atom.config.set('linter-tidy.customGrammarScopes', [
-        'text.html.mustache',
-      ])).toBe(true);
-      waitsForPromise(() =>
-        atom.workspace.open(badHandlebarsFile).then(editor =>
-          globalLint(editor)
-        ).then(messages => {
-          expect(messages.length).toBeGreaterThan(0);
-        })
-      );
-    });
-
-    itIfLinterAvailable('ignores errors in excluded scopes', () => {
-      expect(atom.config.set('linter-tidy.customGrammarScopes', [])).toBe(true);
-      waitsForPromise(() =>
-        atom.workspace.open(badHandlebarsFile).then(editor =>
-          globalLint(editor)
-        ).then(messages => {
-          expect(messages.length).toBe(0);
-        })
-      );
-    });
   });
 });
