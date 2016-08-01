@@ -19,6 +19,7 @@ module.exports =
 
   provideLinter: ->
     helpers = require('atom-linter')
+    path = require('path')
     regex = /line (\d+) column (\d+) - (Warning|Error): (.+)/g
     provider =
       grammarScopes: ['text.html.basic']
@@ -28,10 +29,12 @@ module.exports =
       lint: (textEditor) =>
         filePath = textEditor.getPath()
         fileText = textEditor.getText()
+        [projectPath] = atom.project.relativizePath(filePath)
+        cwd = if projectPath? then projectPath else path.dirname(filePath)
         return helpers.exec(
           @executablePath,
           ['-quiet', '-utf8', '-errors'],
-          {stream: 'stderr', stdin: fileText, allowEmptyStderr: true}
+          {stream: 'stderr', stdin: fileText, cwd, allowEmptyStderr: true}
         ).then (output) ->
           messages = []
           match = regex.exec(output)
