@@ -15,6 +15,9 @@ Config in Atom menu):
 ```coffeescript
 'linter-tidy':
   'tidyExecutablePath': null # tidy path. run 'which tidy' to find the path
+  'grammarScopes': [
+    'text.html.basic'
+  ] # A list of grammar scopes to lint with Tidy.
 ```
 
 [tidy-html5]: http://www.html-tidy.org
