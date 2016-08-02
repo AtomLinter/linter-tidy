@@ -1,7 +1,7 @@
 {
   "name": "linter-tidy",
   "main": "./lib/main.coffee",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Linter plugin for HTML, using tidy",
   "repository": {
     "type": "git",
