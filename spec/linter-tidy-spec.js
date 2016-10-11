@@ -10,12 +10,14 @@ const goodFile = path.join(__dirname, 'fixtures', 'good.html');
 describe('The Tidy provider for Linter', () => {
   beforeEach(() => {
     atom.workspace.destroyActivePaneItem();
-    waitsForPromise(() => {
-      atom.packages.activatePackage('linter-tidy');
-      return atom.packages.activatePackage('language-html').then(() =>
-        atom.workspace.open(path.join(__dirname, 'fixtures', 'good.html'))
-      );
-    });
+    waitsForPromise(() =>
+      Promise.all([
+        atom.packages.activatePackage('linter-tidy'),
+        atom.packages.activatePackage('language-html'),
+      ]).then(() =>
+        atom.workspace.open(goodFile)
+      )
+    );
   });
 
   describe('checks a file with issues and', () => {
