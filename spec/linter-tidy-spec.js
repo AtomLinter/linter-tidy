@@ -2,7 +2,7 @@
 
 import * as path from 'path';
 
-const lint = require('../lib/main.coffee').provideLinter().lint;
+const lint = require('../lib/main.js').provideLinter().lint;
 
 const badFile = path.join(__dirname, 'fixtures', 'bad.html');
 const goodFile = path.join(__dirname, 'fixtures', 'good.html');

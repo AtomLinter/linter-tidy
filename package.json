@@ -1,6 +1,6 @@
 {
   "name": "linter-tidy",
-  "main": "./lib/main.coffee",
+  "main": "./lib/main.js",
   "version": "2.2.0",
   "description": "Linter plugin for HTML, using tidy",
   "repository": {
@@ -13,10 +13,28 @@
     "tidy",
     "tidy-html5"
   ],
+  "configSchema": {
+    "executablePath": {
+      "default": "tidy",
+      "title": "Full path to the `tidy` executable",
+      "type": "string"
+    },
+    "grammarScopes": {
+      "default": [
+        "text.html.basic"
+      ],
+      "title": "Grammar Scopes",
+      "description": "A list of grammar scopes to lint with Tidy.<br/><br/> By default, this package only lints HTML scopes known to work cleanly with Tidy. If you know of any HTML variants that Tidy works with without producing spurious errors, please [let us know](https://github.com/AtomLinter/linter-tidy/issues) so that we may improve the default list.<br/><br/> To find the grammar scopes used by a file, use the `Editor: Log Cursor Scope` command.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
   "license": "MIT",
   "private": true,
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.4.0 <2.0.0"
   },
   "providedServices": {
     "linter": {
@@ -27,25 +45,35 @@
   },
   "scripts": {
     "test": "apm test",
-    "lint": "coffeelint lib && eslint spec"
+    "lint": "eslint ."
   },
   "dependencies": {
     "atom-linter": "^8.0.0",
     "atom-package-deps": "^4.0.1"
   },
   "devDependencies": {
-    "coffeelint": "^1.14.2",
     "eslint": "^3.6.0",
     "eslint-config-airbnb-base": "^8.0.0",
     "eslint-plugin-import": "^1.16.0"
   },
   "eslintConfig": {
     "extends": "airbnb-base",
-    "globals": {
-      "atom": true
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
     },
     "env": {
       "node": true
+    },
+    "globals": {
+      "atom": true
     }
   },
   "package-deps": [
