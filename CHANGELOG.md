@@ -1,5 +1,25 @@
 # Change Log
 
+## [v2.2.1](https://github.com/AtomLinter/linter-tidy/tree/v2.2.1) (2016-10-11)
+[Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.2.0...v2.2.1)
+
+**Implemented enhancements:**
+
+- linting of .hbs files [\#16](https://github.com/AtomLinter/linter-tidy/issues/16)
+- Rewrite in ES2017 [\#87](https://github.com/AtomLinter/linter-tidy/pull/87) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update CI configuration [\#86](https://github.com/AtomLinter/linter-tidy/pull/86) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update eslint-config-airbnb-base to version 8.0.0 🚀 [\#83](https://github.com/AtomLinter/linter-tidy/pull/83) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update eslint-config-airbnb-base to version 7.0.0 🚀 [\#82](https://github.com/AtomLinter/linter-tidy/pull/82) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update eslint-config-airbnb-base to version 6.0.0 🚀 [\#81](https://github.com/AtomLinter/linter-tidy/pull/81) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update atom-linter to version 8.0.0 🚀 [\#78](https://github.com/AtomLinter/linter-tidy/pull/78) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Fixed bugs:**
+
+- Fails to use custom path [\#45](https://github.com/AtomLinter/linter-tidy/issues/45)
+- Rewrite in ES2017 [\#87](https://github.com/AtomLinter/linter-tidy/pull/87) ([Arcanemagus](https://github.com/Arcanemagus))
+- chore\(package\): update eslint-plugin-import to version 1.14.0 [\#80](https://github.com/AtomLinter/linter-tidy/pull/80) ([Arcanemagus](https://github.com/Arcanemagus))
+- Lint with system Node.js [\#79](https://github.com/AtomLinter/linter-tidy/pull/79) ([Arcanemagus](https://github.com/Arcanemagus))
+
 ## [v2.2.0](https://github.com/AtomLinter/linter-tidy/tree/v2.2.0) (2016-08-02)
 [Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.1.1...v2.2.0)
 
