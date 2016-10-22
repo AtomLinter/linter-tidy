@@ -17,7 +17,20 @@
     "executablePath": {
       "default": "tidy",
       "title": "Full path to the `tidy` executable",
+      "order": 1,
       "type": "string"
+    },
+    "executableArguments": {
+      "default": [
+        "-utf8"
+      ],
+      "title": "Tidy Executable Arguments",
+      "description": "A comma-separated list of additional arguments to pass to the Tidy executable when invoked.<br/><br/>The arguments specified here will be appended to arguments required for this linter to work.",
+      "order": 2,
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "grammarScopes": {
       "default": [
@@ -25,6 +38,7 @@
       ],
       "title": "Grammar Scopes",
       "description": "A list of grammar scopes to lint with Tidy.<br/><br/> By default, this package only lints HTML scopes known to work cleanly with Tidy. If you know of any HTML variants that Tidy works with without producing spurious errors, please [let us know](https://github.com/AtomLinter/linter-tidy/issues) so that we may improve the default list.<br/><br/> To find the grammar scopes used by a file, use the `Editor: Log Cursor Scope` command.",
+      "order": 3,
       "type": "array",
       "items": {
         "type": "string"
