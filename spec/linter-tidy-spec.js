@@ -5,6 +5,7 @@ import * as path from 'path';
 const lint = require('../lib/main.js').provideLinter().lint;
 
 const badFile = path.join(__dirname, 'fixtures', 'bad.html');
+const badTabFile = path.join(__dirname, 'fixtures', 'bad_tab.html');
 const goodFile = path.join(__dirname, 'fixtures', 'good.html');
 
 describe('The Tidy provider for Linter', () => {
@@ -58,6 +59,16 @@ describe('The Tidy provider for Linter', () => {
         lint(editor).then(messages =>
           expect(messages.length).toBe(0)
         )
+      )
+    );
+  });
+
+  it('handles files indented with tabs', () => {
+    waitsForPromise(() =>
+      atom.workspace.open(badTabFile).then(
+        editor => lint(editor)
+      ).then(
+        messages => expect(messages.length).toBeGreaterThan(0)
       )
     );
   });
