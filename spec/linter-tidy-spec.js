@@ -84,4 +84,37 @@ describe('The Tidy provider for Linter', () => {
       )
     );
   });
+
+  describe('allows for custom executable arguments and', () => {
+    it('ignores errors that a user has chosen to ignore', () => {
+      expect(atom.config.set('linter-tidy.executableArguments', [
+        '-utf8',
+        '--show-warnings',
+        'false',
+      ])).toBe(true);
+      waitsForPromise(() =>
+        atom.workspace.open(badFile).then(
+          editor => lint(editor)
+        ).then(
+          messages => expect(messages.length).toBe(0)
+        )
+      );
+    });
+
+    it('works as expected with an empty array of custom arguments', () => {
+      expect(atom.config.set('linter-tidy.executableArguments', [])).toBe(true);
+      waitsForPromise(() => Promise.all([
+        atom.workspace.open(goodFile).then(
+          editor => lint(editor)
+        ).then(
+          messages => expect(messages.length).toBe(0)
+        ),
+        atom.workspace.open(badFile).then(
+          editor => lint(editor)
+        ).then(
+          messages => expect(messages.length).toBeGreaterThan(0)
+        ),
+      ]));
+    });
+  });
 });
