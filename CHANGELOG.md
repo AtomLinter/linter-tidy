@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.3.0](https://github.com/AtomLinter/linter-tidy/tree/v2.3.0) (2016-11-12)
+[Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.2.1...v2.3.0)
+
+**Implemented enhancements:**
+
+- Added configurable Tidy executable arguments [\#90](https://github.com/AtomLinter/linter-tidy/pull/90) ([tyearke](https://github.com/tyearke))
+
+**Fixed bugs:**
+
+- Fixed mismatched columns between Atom and Tidy when file uses tabs [\#92](https://github.com/AtomLinter/linter-tidy/pull/92) ([tyearke](https://github.com/tyearke))
+
 ## [v2.2.1](https://github.com/AtomLinter/linter-tidy/tree/v2.2.1) (2016-10-11)
 [Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.2.0...v2.2.1)
 
