@@ -16,8 +16,8 @@ describe('The Tidy provider for Linter', () => {
         atom.packages.activatePackage('linter-tidy'),
         atom.packages.activatePackage('language-html'),
       ]).then(() =>
-        atom.workspace.open(goodFile)
-      )
+        atom.workspace.open(goodFile),
+      ),
     );
   });
 
@@ -27,15 +27,15 @@ describe('The Tidy provider for Linter', () => {
       waitsForPromise(() =>
         atom.workspace.open(badFile).then((openEditor) => {
           editor = openEditor;
-        })
+        }),
       );
     });
 
     it('finds at least one message', () => {
       waitsForPromise(() =>
         lint(editor).then(messages =>
-          expect(messages.length).toBeGreaterThan(0)
-        )
+          expect(messages.length).toBeGreaterThan(0),
+        ),
       );
     });
 
@@ -48,7 +48,7 @@ describe('The Tidy provider for Linter', () => {
           expect(messages[0].text).toBe(messageText);
           expect(messages[0].filePath).toBe(badFile);
           expect(messages[0].range).toEqual([[6, 0], [6, 4]]);
-        })
+        }),
       );
     });
   });
@@ -57,19 +57,19 @@ describe('The Tidy provider for Linter', () => {
     waitsForPromise(() =>
       atom.workspace.open(goodFile).then(editor =>
         lint(editor).then(messages =>
-          expect(messages.length).toBe(0)
-        )
-      )
+          expect(messages.length).toBe(0),
+        ),
+      ),
     );
   });
 
   it('handles files indented with tabs', () => {
     waitsForPromise(() =>
       atom.workspace.open(badTabFile).then(
-        editor => lint(editor)
+        editor => lint(editor),
       ).then(
-        messages => expect(messages.length).toBeGreaterThan(0)
-      )
+        messages => expect(messages.length).toBeGreaterThan(0),
+      ),
     );
   });
 
@@ -80,8 +80,8 @@ describe('The Tidy provider for Linter', () => {
         editor.insertText('\n<h2>This should not be outside the body!</h2>\n');
         return lint(editor);
       }).then(messages =>
-        expect(messages.length).toBeGreaterThan(0)
-      )
+        expect(messages.length).toBeGreaterThan(0),
+      ),
     );
   });
 
@@ -94,10 +94,10 @@ describe('The Tidy provider for Linter', () => {
       ])).toBe(true);
       waitsForPromise(() =>
         atom.workspace.open(badFile).then(
-          editor => lint(editor)
+          editor => lint(editor),
         ).then(
-          messages => expect(messages.length).toBe(0)
-        )
+          messages => expect(messages.length).toBe(0),
+        ),
       );
     });
 
@@ -105,14 +105,14 @@ describe('The Tidy provider for Linter', () => {
       expect(atom.config.set('linter-tidy.executableArguments', [])).toBe(true);
       waitsForPromise(() => Promise.all([
         atom.workspace.open(goodFile).then(
-          editor => lint(editor)
+          editor => lint(editor),
         ).then(
-          messages => expect(messages.length).toBe(0)
+          messages => expect(messages.length).toBe(0),
         ),
         atom.workspace.open(badFile).then(
-          editor => lint(editor)
+          editor => lint(editor),
         ).then(
-          messages => expect(messages.length).toBeGreaterThan(0)
+          messages => expect(messages.length).toBeGreaterThan(0),
         ),
       ]));
     });
