@@ -1,7 +1,7 @@
 {
   "name": "linter-tidy",
   "main": "./lib/main.js",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Linter plugin for HTML, using tidy",
   "repository": {
     "type": "git",

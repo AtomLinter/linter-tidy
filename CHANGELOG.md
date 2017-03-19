@@ -1,17 +1,34 @@
 # Change Log
 
+## [v2.3.1](https://github.com/AtomLinter/linter-tidy/tree/v2.3.1) (2017-03-18)
+[Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.3.0...v2.3.1)
+
+**Implemented enhancements:**
+
+- tidy5 and command line options [\#40](https://github.com/AtomLinter/linter-tidy/issues/40)
+- Update to eslint-config-airbnb-base v11.1.1 [\#104](https://github.com/AtomLinter/linter-tidy/pull/104) ([Arcanemagus](https://github.com/Arcanemagus))
+- Whitelist Greenkeeper branches [\#103](https://github.com/AtomLinter/linter-tidy/pull/103) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update atom-linter to the latest version 🚀 [\#99](https://github.com/AtomLinter/linter-tidy/pull/99) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- Update dependencies to enable Greenkeeper 🌴 [\#97](https://github.com/AtomLinter/linter-tidy/pull/97) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+
+**Fixed bugs:**
+
+- Tidy and locale issue [\#101](https://github.com/AtomLinter/linter-tidy/issues/101)
+- Fixed package not working on non-English systems [\#102](https://github.com/AtomLinter/linter-tidy/pull/102) ([tyearke](https://github.com/tyearke))
+
 ## [v2.3.0](https://github.com/AtomLinter/linter-tidy/tree/v2.3.0) (2016-11-12)
 [Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.2.1...v2.3.0)
 
 **Implemented enhancements:**
 
+- Prepare v2.3.0 release [\#94](https://github.com/AtomLinter/linter-tidy/pull/94) ([tyearke](https://github.com/tyearke))
 - Added configurable Tidy executable arguments [\#90](https://github.com/AtomLinter/linter-tidy/pull/90) ([tyearke](https://github.com/tyearke))
 
 **Fixed bugs:**
 
 - Fixed mismatched columns between Atom and Tidy when file uses tabs [\#92](https://github.com/AtomLinter/linter-tidy/pull/92) ([tyearke](https://github.com/tyearke))
 
-## [v2.2.1](https://github.com/AtomLinter/linter-tidy/tree/v2.2.1) (2016-10-11)
+## [v2.2.1](https://github.com/AtomLinter/linter-tidy/tree/v2.2.1) (2016-10-12)
 [Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.2.0...v2.2.1)
 
 **Implemented enhancements:**
