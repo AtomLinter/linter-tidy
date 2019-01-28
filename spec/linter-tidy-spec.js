@@ -24,11 +24,11 @@ describe('The Tidy provider for Linter', () => {
     const messageText = '<img> lacks "alt" attribute';
 
     expect(messages.length).toBe(1);
-    expect(messages[0].type).toBe('Warning');
-    expect(messages[0].html).not.toBeDefined();
-    expect(messages[0].text).toBe(messageText);
-    expect(messages[0].filePath).toBe(badFile);
-    expect(messages[0].range).toEqual([[6, 0], [6, 4]]);
+    expect(messages[0].url).not.toBeDefined();
+    expect(messages[0].severity).toBe('warning');
+    expect(messages[0].excerpt).toBe(messageText);
+    expect(messages[0].location.file).toBe(badFile);
+    expect(messages[0].location.position).toEqual([[6, 0], [6, 4]]);
   });
 
   it('finds nothing wrong with a valid file', async () => {
