@@ -1,6 +1,22 @@
 # Change Log
 
-## [v2.3.1](https://github.com/AtomLinter/linter-tidy/tree/v2.3.1) (2017-03-18)
+## [v2.4.0](https://github.com/AtomLinter/linter-tidy/tree/v2.4.0) (2019-01-28)
+[Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.3.1...v2.4.0)
+
+**Implemented enhancements:**
+
+- V2 linter API support [\#125](https://github.com/AtomLinter/linter-tidy/pull/125) ([vzamanillo](https://github.com/vzamanillo))
+- Update atom-package-deps to version 5.0.0 🚀 [\#123](https://github.com/AtomLinter/linter-tidy/pull/123) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Asyncify the specs [\#114](https://github.com/AtomLinter/linter-tidy/pull/114) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update eslint-config-airbnb-base to version 12.0.0 🚀 [\#112](https://github.com/AtomLinter/linter-tidy/pull/112) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update eslint to version 4.3.0 🚀 [\#109](https://github.com/AtomLinter/linter-tidy/pull/109) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update atom-linter to version 10.0.0 🚀 [\#106](https://github.com/AtomLinter/linter-tidy/pull/106) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Support v2 Linter API [\#124](https://github.com/AtomLinter/linter-tidy/issues/124)
+
+## [v2.3.1](https://github.com/AtomLinter/linter-tidy/tree/v2.3.1) (2017-03-19)
 [Full Changelog](https://github.com/AtomLinter/linter-tidy/compare/v2.3.0...v2.3.1)
 
 **Implemented enhancements:**
@@ -8,8 +24,8 @@
 - tidy5 and command line options [\#40](https://github.com/AtomLinter/linter-tidy/issues/40)
 - Update to eslint-config-airbnb-base v11.1.1 [\#104](https://github.com/AtomLinter/linter-tidy/pull/104) ([Arcanemagus](https://github.com/Arcanemagus))
 - Whitelist Greenkeeper branches [\#103](https://github.com/AtomLinter/linter-tidy/pull/103) ([Arcanemagus](https://github.com/Arcanemagus))
-- Update atom-linter to the latest version 🚀 [\#99](https://github.com/AtomLinter/linter-tidy/pull/99) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
-- Update dependencies to enable Greenkeeper 🌴 [\#97](https://github.com/AtomLinter/linter-tidy/pull/97) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- Update atom-linter to version 9.0.0 🚀 [\#99](https://github.com/AtomLinter/linter-tidy/pull/99) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dependencies to enable Greenkeeper 🌴 [\#97](https://github.com/AtomLinter/linter-tidy/pull/97) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 **Fixed bugs:**
 
@@ -103,7 +119,7 @@
 - Add Travis-CI config [\#23](https://github.com/AtomLinter/linter-tidy/pull/23) ([Arcanemagus](https://github.com/Arcanemagus))
 - Add specs [\#22](https://github.com/AtomLinter/linter-tidy/pull/22) ([Arcanemagus](https://github.com/Arcanemagus))
 - Upgrade to latest API [\#19](https://github.com/AtomLinter/linter-tidy/pull/19) ([steelbrain](https://github.com/steelbrain))
-- Point to tidy-html5 [\#13](https://github.com/AtomLinter/linter-tidy/pull/13) ([andya9](https://github.com/andya9))
+- Point to tidy-html5 [\#13](https://github.com/AtomLinter/linter-tidy/pull/13) ([ghost](https://github.com/ghost))
 
 **Fixed bugs:**
 
